@@ -1,51 +1,47 @@
-#!/bin/python3
+#Calculate the Pythagorean hypotenuse
+#Calculate the distance between 2 points
+#Calculate the displacement based on time, speed and acceleration
 
-import math as m
+import math as m 
 
-#determine the hypothenuse of a triangle 
-def hypothenuse(a,b):
-    return m.sqrt(pow(a,2)+pow(b,2))
+#return the hypotenuse from sides a and b
+#functions with return value should not read from STDIN
+#functions with return value should not read from argv
+#functions with return value should not print
+def hypotenuse(a,b):
+    return m.sqrt(pow(a,2) + m.pow(b,2)) 
 
-def show_hypothenuse():
+#procedure to show the hypotenuse
+def showHypotenuse():
     a = int(input("a = "))
     b = int(input("b = "))
-    print(f'Hypothenuse = {hypothenuse(a,b)} ')
+    print(hypotenuse(a,b)) 
+    
+def distance(x1,y1,x2,y2):
+    return m.sqrt(pow((x2-x1),2)+m.pow((y2-y1),2))
 
-#determine the distance between (x1,y1) and (x2, y2)
-def distance(x1,x2,y1,y2):
-    return m.sqrt(pow(x1-x2,2)+pow(y1-y2,2))
-
-def show_distance():
-    x1 = int(input("X1 = "))
-    y1 = int(input("Y1 = "))
-    x2 = int(input("X2 = "))
-    y2 = int(input("Y2 = "))
-    print(f'Distance = {distance(x1,x2,y1,y2)} ')
-
-#calcuate the distance based on speed and time
-def position(v,t):
-    return v*t 
-
-def show_position():
-    v = int(input("v = "))
-    t = int(input("t = "))
-    print(f'Position = {position(v,t)} ')
-
+#procedure to show the distance
+def showDistance():
+    x1 = int(input("x1 = "))
+    y1 = int(input("y1 = "))
+    x2 = int(input("x2 = "))
+    y2 = int(input("y2 = "))
+    print(distance(x1,y1,x2,y2)) 
+    
+#switcher menu to select execution path
 def switch(choice):
     if choice == "h":
-        show_hypothenuse()
+        showHypotenuse()
     elif choice == "d":
-        show_distance()
-    elif choice == "p":
-        show_position()
+        showDistance()
     else:
-        print("Unknown choice")
-
-def main():
-    choice = input("Choice(h/d/p/x): ")
-    while(choice != "x"):
+        print("Unknown command!")
+        
+def run():
+    choice = input("Command (h/d/x): ")
+    while choice != "x":
         switch(choice)
-        choice = input("Choice(h/d/p/x): ")
+        choice = input("Command (h/d/x): ")
     print("Thank you")
     
-main()
+run()

@@ -1,20 +1,31 @@
-#!/bin/python3
+# Open a text file and write strings from STDIN
+# Open that file and read line by line to STDOUT
 
-#define a function to read and show the data from a file
-def read_text(file):
-    f = open(file,"r")
+def writeText(file,data):
+    f = open(file, "a")
+    f.write(data+"\n")
+    f.close()
+    
+# f = open("demo.txt", "a")
+# s = input("String: ")
+# f.write(s+"\n")
+# f.close()
+
+def readText(file):
+    f = open(file, "r")
     print(f.read())
     f.close()
 
-#Define a function to write text to a file
-def write_text(data,file):
-    f = open(file,"a+")
-    f.write(data+"\n")
-    f.close()
+# f = open("demo.txt", "r")
+# print(f.read())
+# # for line in f:
+# #     print(line)
+# f.close()
 
 def run():
     file = input("File: ")
-    data = input("Data: ")
-    write_text(data,file)
-    read_text(file)
+    data = input("String: ")
+    writeText(file,data)
+    readText(file)
+
 run()
